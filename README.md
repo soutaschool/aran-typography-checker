@@ -37,20 +37,20 @@
 
 1. **Install Dependencies**
 
-   ```bash
-   npm install
-   ```
-
-2. **Run Development Server (if using Vite or similar)**
-
 ```bash
-npm run dev
+npm install
 ```
 
-3. **Build for Production**
+2. **Build for Production**
 
 ```bash
 npm run build
+```
+
+3. **Run Development Server (if using Vite or similar)**
+
+```bash
+npm run start
 ```
 
 ## How It Works
