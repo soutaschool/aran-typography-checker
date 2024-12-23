@@ -1,1 +1,1 @@
-export { KaranTypographyChecker } from './KaranTypographyChecker.js';
+export { TypographyChecker } from "./TypographyChecker.js";

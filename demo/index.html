@@ -3,25 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <style>
-    body {
-      background: #fafafa;
-    }
-  </style>
 </head>
 <body>
   <div id="demo"></div>
 
   <script type="module">
     import { html, render } from 'lit';
-    import '../dist/src/karan-typography-checker.js';
+    import '../dist/src/typography-checker.js';
 
-    const header = 'Hello owc World!';
     render(
       html`
-        <karan-typography-checker .header=${header}>
-          some light-dom
-        </karan-typography-checker>
+       <typography-checker>
+          <p style="font-size:14px; line-height:18px; font-family:'Comic Sans MS';">
+            This paragraph has a small font size and line height.
+            Also, "Comic Sans MS" is not included in the allowedFonts,
+            so the tool should detect a font-family issue here.
+          </p>
+
+          <h2>This is an H2 heading</h2>
+          <h5>Ideally this should be H3, but it jumps to H5 instead.</h5>
+
+          <strong style="font-weight:900;">
+            This strong element has a font-weight of 900, which is too heavy.
+          </strong>
+
+          <a href="#" style="text-decoration:none; color:white; background:white;">
+            This link is visually indistinguishable (no underline, same color).
+          </a>
+
+          <p style="font-size:16px; line-height:24px; font-family:'Papyrus';">
+            This paragraph has a valid font size and line-height,
+            but uses "Papyrus", which is not allowed in the design system.
+          </p>
+        </typography-checker>
       `,
       document.querySelector('#demo')
     );
