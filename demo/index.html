@@ -14,13 +14,16 @@
     render(
       html`
        <typography-checker>
-          <p style="font-size:14px; line-height:18px; font-family:'Comic Sans MS';">
+          <!-- ここで Typography.ts のルールをあえて違反させた例 -->
+          <p style="font-size:14px; line-height:18px; font-family:'Comic Sans MS'; margin:10px;">
             This paragraph has a small font size and line height.
             Also, "Comic Sans MS" is not included in the allowedFonts,
             so the tool should detect a font-family issue here.
           </p>
 
-          <h2>This is an H2 heading</h2>
+          <h2 style="margin-top:10px; margin-bottom:20px;">
+            This is an H2 heading, but margin is not zero.
+          </h2>
           <h5>Ideally this should be H3, but it jumps to H5 instead.</h5>
 
           <strong style="font-weight:900;">
@@ -31,9 +34,9 @@
             This link is visually indistinguishable (no underline, same color).
           </a>
 
-          <p style="font-size:16px; line-height:24px; font-family:'Papyrus';">
+          <p style="font-size:16px; line-height:24px; font-family:'Papyrus'; letter-spacing:0.05em;">
             This paragraph has a valid font size and line-height,
-            but uses "Papyrus", which is not allowed in the design system.
+            but uses "Papyrus" (not in allowed list) and letter-spacing is not normal.
           </p>
         </typography-checker>
       `,
